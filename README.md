@@ -19,18 +19,18 @@ Wanderwise is your smart travel companion — a web application inspired by Trip
 
 Wanderwise/
 │
-├── static/                # Contains all static files
-│   ├── css/               # CSS stylesheets
-│   ├── js/                # JavaScript files
-│   └── images/            # Image assets
+├── static/               
+│   ├── css/              
+│   ├── js/             
+│   └── images/       
 │
-├── templates/             # HTML templates for rendering pages
+├── templates/           
 │
-├── datasets/              # CSV files containing initial data
+├── datasets/            
 │   ├── countries.csv
 │   ├── places.csv
 │   ├── users.csv
 │   └── destinations.csv
 │
-├── app.py                 # Main backend application file
-└── README.md              # Project documentation
+├── app.py                 
+└── README.md            
