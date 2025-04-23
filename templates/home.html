@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listing Page</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <a href="/">Wander<span>Wise</span></a></div>
+      <ul class="nav-links">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#listings">EXPLORE</a></li>
+        <li><a href="#abouts">ABOUT</a></li>
+        <li><a href="/contact">CONTACT</a></li>
+      </ul>
+      <div class="auth-links">
+        {% if session.get('username') %}
+          <button onclick="window.location.href='/wishlist';">&#9825;</button>&nbsp;&nbsp;
+          Hi, {{ session['username'] }}&nbsp;
+          <div class="dropdown">
+            <img src="/static/images/setting.png" onclick="toggleDropdown()" id="settingIcon">
+            <div id="myDropdown" class="dropdown-content">
+              <a href="/logout">Logout</a>
+              <a href="/login">Sign In</a>
+              <a href="/register">Register</a>
+            </div>
+          </div>
+        {% else %}
+          <a href="/login">Sign In</a>
+          <a href="/register">Register</a>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-overlay">
+      <h1>BEST PLACE TO FIND AND EXPLORE THAT ALL YOU NEED</h1>
+      <p>Find Best Place, Restaurant, Hotel and many more things in just One click</p>
+      <div class="search-box">
+        <form action="/search" method="post">
+          <input type="text" name="search" placeholder="Country Ex: Spain">
+          <button>Search</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="listings" id="listings">
+    <span style="font-size: 35px;"><h2>EXPLORE</h2></span>
+
+    <div class="listingorg">
+      <div class="res">
+        <span style="font-size: 30px;"><h3>Restaurants</h3></span>
+        <a href="/tres"><img src="/static/images/restaurant11.jpg"></a>
+      </div>
+      <div class="des">
+        <span style="font-size: 30px;"><h3>Destinations</h3></span>
+        <a href="/des"><img src="/static/images/welcome.jpg"></a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+  <section class="abouts" id="abouts">
+    <span style="font-size: 30px;"><h1>ABOUT</h1></span>
+    <p>"We are WanderWise, your trusted travel companion dedicated to helping you discover the best destinations, accommodations, and experiences around the globe."</p>
+    
+    <div class="divabout">
+      <div class="mission">
+        <h2>Our Mission</h2>&nbsp;
+        <p>"Our mission is to make travel planning seamless, enjoyable, and accessible for everyone. We aim to connect travelers with exceptional hotels, tour packages, restaurants, and hidden gems worldwide."</p>
+      </div>
+      <div class="offer">
+        <h2>What We Offer</h2>&nbsp;
+        <p>"We provide comprehensive country and destination guides, curated tour packages for every type of traveler, reliable reviews and recommendations for hotels and restaurants, and easy-to-navigate resources to help you plan unforgettable trips."</p>
+      </div>
+      <div class="why">
+        <h2>Why us?</h2>&nbsp;
+        <p>"Choose us for our passion for travel, unbiased reviews, verified information, and user-focused tools tailored to enhance your journey."</p>
+      </div>
+    </div>
+  </section>
+  <script>
+        function toggleDropdown() {
+            var img = document.getElementById("settingIcon");
+            img.classList.toggle("rotated");
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown img')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 ListRace. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

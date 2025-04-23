@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ pack[1] }} Packages</title> <!-- Assuming dest[1] is the name -->
+  <link rel="stylesheet" href="/static/css/packages.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="/">Wander<span>Wise</span></a></div>
+            
+            <!-- Search form within the navbar -->
+          <div class="search-form">
+            <form action="/search" method="post">
+              <input type="text" name="search" placeholder="Country Ex: Spain">
+              <input type="submit" name="submit">
+            </form>
+          </div>
+
+            <!-- Authentication Links -->
+            <div class="auth-links"> 
+                {% if session.get('username') %} 
+                    <button onclick="window.location.href='/wishlist';">&#9825;</button>&nbsp;&nbsp;
+                    Hi, {{ session['username'] }}&nbsp;
+                    <div class="dropdown">
+                        <img src="/static/images/setting.png" onclick="toggleDropdown()" id="settingIcon">
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="/logout">Logout</a>
+                            <a href="/login">Sign In</a>
+                            <a href="/register">Register</a>
+                        </div>
+                    </div>
+                {% else %} 
+                    <a href="/login">Sign In</a> 
+                    <a href="/register">Register</a> 
+                {% endif %} 
+            </div>
+        </div>
+    </header>
+
+  <section >
+    <div class="main">
+      <div class="subabout">
+              
+              <div class="fav">
+                <h1>{{ pack[1].upper()}}</h1>
+            </div>
+            <div class="next">
+                <div class="img11">
+                <img src="{{ url_for('static', filename='images/packages/' + pack[14]) }}"  width="50%" height="400px" >
+                <br>
+
+              </div>
+                <div class="dess">
+                  <h2>ABOUT</h2>
+                  {{pack[3]}}
+
+                  <div class="pa">
+                    <h2>Details</h2>
+                    <b>Info: </b>{{pack[6]}}<br>
+                    <b>Duration: </b>{{pack[5]}}<br>
+                    <b>Price: </b>{{pack[4]}}<br>
+                    <b>Pickup/Drop-off: </b>{{pack[10]}}<br>
+                    <b>Age: </b>{{pack[11]}}<br>
+  <form action="/payment/{{ pack[0] }}" method="get">
+      {% if session.get('username') %}
+        <button type="submit">Reserve</button>
+      {% else %}
+        <button type="button" onclick="alert('Please log in to reserve this package.'); window.location.href='/login';">
+            Reserve
+        </button>
+    {% endif %}
+</form>
+
+
+                  </div>
+
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+  </section>
+      <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 ListRace. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
+      <script>
+        function toggleDropdown() {
+            var img = document.getElementById("settingIcon");
+            // Toggle the 'rotated' class to apply/remove the rotation
+            img.classList.toggle("rotated");
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown img')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

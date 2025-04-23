@@ -1,0 +1,242 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+
+    line-height: 1.6;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(135deg, #f4f4f4, #e2e2e2);
+    padding: 10px 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+}
+.logo {
+    text-decoration: none; /* Remove underline */
+     /* Inherit color from the parent, or set a custom color */
+}
+
+a {
+    text-decoration: none; /* Remove underline from all links */
+}
+
+a:hover, a:visited, a:focus {
+    text-decoration: none;
+    color: black; /* Ensure underline stays removed on hover/visited states */
+     /* Keep the original color */
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: red;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown img {
+    height: 25px;
+    width: 25px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+/* Auth Links */
+.auth-links {
+    display: flex;
+    align-items: center;
+    padding-right: 90px;
+}
+
+.auth-links span {
+    margin-right: 15px;
+}
+
+.auth-links img {
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Rotated state */
+.rotated {
+    transform: rotate(90deg); /* Rotates the image 90 degrees */
+}
+
+.auth-links a {
+    text-decoration: none;
+    margin-left: 10px;
+    color: #007bff;
+}
+.auth-links button {
+  font-size: 20px; /* Adjusts the text size inside the button */
+  padding: 5px 10px; /* Adjusts the padding inside the button */
+  height: auto;
+  width: auto;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+
+    .search-form input[type='text'] {
+    width: 450px;
+    height: 35px;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.search-form input[type='submit'] {
+    width: 100px;
+    height: 35px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+section {
+    margin-top: 100px; /* Adjust based on the fixed navbar height */
+    padding: 20px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.img11 img{
+    border-radius: 20px;
+}
+
+.all{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px;
+
+}
+.rating, .abs, .loc{
+
+    width: 300px;
+    height: 300px;
+    box-shadow:  0 4px 8px rgba(0, 0, 0, 0.1);;
+    padding: 10px;
+    transition: transform 0.3s,box-shadow 0.3s;
+}
+
+.rating:hover, .abs:hover, .loc:hover{
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dess{
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.loc #address-container div {
+    margin: 5px 0; 
+}
+
+.fav{
+  display: flex;
+  justify-content: space-between;
+
+}
+.heart-btn {
+    background: none;
+    border: 1px solid;
+    border-radius: 50px;
+    height: 40px;
+    width: 100px;
+    font-size: 30px;
+    margin-top: 10px;  /* Increase the font size to enlarge the heart */
+    margin-left: 10px;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.3s;
+}
+
+.heart-btn:hover {
+    color: #e74c3c;
+}
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-links li {
+    margin: 0 15px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}

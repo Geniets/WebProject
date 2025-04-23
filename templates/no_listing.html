@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Listings Found</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        h1 {
+            color: #ff6347;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <h1>No Listings Found</h1>
+    <img src="/static/images/error.jpg" height="250px" width="250px">
+    <p>Sorry, we couldn't find any listings for "<strong>{{ country }}</strong>".</p>
+    <a href="/">Return to Home</a>
+</body>
+</html>

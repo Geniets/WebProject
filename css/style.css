@@ -1,0 +1,342 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 70px;
+}
+.logo {
+    text-decoration: none; /* Remove underline */
+     /* Inherit color from the parent, or set a custom color */
+}
+
+a {
+    text-decoration: none; /* Remove underline from all links */
+}
+
+a:hover, a:visited, a:focus {
+    text-decoration: none;
+    color: black; /* Ensure underline stays removed on hover/visited states */
+     /* Keep the original color */
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(135deg, #f4f4f4, #e2e2e2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: red;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+}
+
+.auth-links {
+  display: flex;
+  align-items: center;
+  padding-right: 90px;
+}
+
+.auth-links span {
+  margin-right: 15px;
+}
+
+.auth-links img {
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Rotated state */
+.rotated {
+  transform: rotate(90deg); /* Rotates the image 90 degrees */
+}
+
+.auth-links a {
+  text-decoration: none;
+  margin-left: 10px;
+  color: #007bff;
+}
+
+.hero {
+  height: 100vh;
+  background: url('/static/images/hiking1.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  width: 100%;
+}
+
+.search-box {
+  margin-top: 20px;
+  display: flex;
+  justify-content: right;
+  gap: 10px;
+}
+
+.search-box input {
+  padding: 10px;
+  width: 500px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+}
+
+.search-box button {
+  padding: 10px 20px;
+  background: red;
+  height: 50px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.listingorg {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.listingorg img {
+  height: 350px;
+  width: 450px;
+}
+
+.res img, .des img {
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+
+.res img:hover, .des img:hover, .hotel img:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+}
+
+.listings {
+  height: 100vh;
+  text-align: center;
+  padding-top: 100px;
+}
+
+/* Add this to your existing CSS */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown img {
+  height: 25px;
+  width: 25px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.show {
+  display: block;
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-links li {
+  margin: 0 15px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.abouts {
+  padding-top: 100px;
+  height: 100vh;
+  text-align: center;
+}
+
+.divabout {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.mission, .offer, .why {
+  margin-top: 50px;
+  height: 350px;
+  width: 350px;
+  padding: 20px;
+  border: 2px solid #ccc; /* Solid border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+  background-color: white; /* Initial background color */
+  color: black; /* Initial text color */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.mission:hover, .offer:hover, .why:hover {
+  background-color: red; /* Pastel orange background */
+  color: white; /* Change text color to white */
+  border-color: #ffb366; /* Optional: Slightly darker pastel border */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+button {
+  font-size: 20px; /* Increase font size for a larger heart symbol */
+  padding: 5px 10px; /* Increase padding for a larger clickable area */
+  background-color: transparent; /* Make background transparent */
+  border: 2px solid #333; /* Border color */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+button:hover {
+  background-color: #f1f1f1; /* Add a hover effect with a light background */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .hero {
+    height: 80vh;
+  }
+
+  .search-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-box input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .listingorg {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .listingorg img {
+    width: 100%;
+    height: auto;
+  }
+
+  .divabout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mission, .offer, .why {
+    width: 80%;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-box input {
+    width: 100%;
+  }
+
+  .search-box button {
+    width: 100%;
+  }
+
+  .footer-content {
+    padding: 0 10px;
+  }
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <link rel="stylesheet" href="/static/css/payment.css">
+  <style >
+      /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Light background */
+    color: #333; /* Text color */
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background: red; /* Blue background */
+    color: #fff; /* White text */
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Section Styles */
+section {
+    max-width: 900px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Package Details Styles */
+.package-details {
+    background: #fff; /* White background */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px;
+}
+
+.package-details h2 {
+    border-bottom: 2px solid #007bff; /* Blue underline */
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.package-details p {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+/* Payment Form Styles */
+.payment-form {
+    background: #fff; /* White background */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px;
+}
+
+.payment-form h2 {
+    border-bottom: 2px solid #007bff; /* Blue underline */
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.payment-form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.payment-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.payment-form button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    background-color: red; /* Blue background */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.payment-form button:hover {
+    background-color: red; /* Darker blue on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    section {
+        padding: 0 10px;
+    }
+
+    .package-details, .payment-form {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Payment for {{ package[1] }}</h1> <!-- package[1]: Package Name -->
+  </header>
+
+  <section>
+    <div class="package-details">
+      <h2>Package Details</h2>
+      <p><b>Package Name:</b> {{ package[1] }}</p>
+      <p><b>Duration:</b> {{ package[5] }}</p>
+      <p><b>Price:</b> ${{ package[4] }}</p>
+      <p><b>Description:</b> {{ package[3] }}</p>
+    </div>
+
+    <div class="payment-form">
+      <h2>Payment Information</h2>
+      <form action="/process_payment" method="post">
+        <!-- Hidden input to pass package ID -->
+        <input type="hidden" name="package_id" value="{{ package[0] }}">
+
+        <label for="name">Cardholder's Name:</label>
+        <input type="text" id="name" name="cardholder_name" required>
+
+        <label for="card_number">Card Number:</label>
+        <input type="text" id="card_number" name="card_number" maxlength="16" required>
+
+        <label for="expiry_date">Expiry Date:</label>
+        <input type="month" id="expiry_date" name="expiry_date" required>
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" maxlength="3" required>
+
+        <button type="submit">Confirm Payment</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,41 @@
+Package_id,Name,country_id,Package Details,Price,Duration,What is Included,Start Date,End Date,Number of Slots,Tour Operator Name,Transportation Type,Pickup/Drop-off Points,Age Restrictions,Contact Information
+1,Paris City Tour,1,Details,$500,3 days,Placeholder,11:20.1,11:20.1,10,Global Travel Co.,Bus,City Center,None,info@operator0.com
+2,Champagne Region Tour,1,Details,$350,2 days,Placeholder,11:20.1,11:20.1,12,Dream Destinations,Flight,Hotel Lobby,12-60 years,info@operator1.com
+3,French Riviera Getaway,1,Details,$600,4 days,Placeholder,11:20.1,11:20.1,14,Global Travel Co.,Private Car,City Center,12-60 years,info@operator2.com
+4,Normandy D-Day Tour,1,Details,$450,3 days,Placeholder,11:20.1,11:20.1,16,Dream Destinations,Bus,Hotel Lobby,None,info@operator3.com
+5,Madrid Historical Tour,2,Details,$450,3 days,Placeholder,11:20.1,11:20.1,18,Global Travel Co.,Flight,City Center,12-60 years,info@operator4.com
+6,Barcelona Architecture Tour,2,Details,$400,2 days,Placeholder,11:20.1,11:20.1,20,Dream Destinations,Private Car,Hotel Lobby,12-60 years,info@operator5.com
+7,Andalusia Experience,2,Details,$700,5 days,Placeholder,11:20.1,11:20.1,22,Global Travel Co.,Bus,City Center,None,info@operator6.com
+8,Canary Islands Adventure,2,Details,$800,7 days,Placeholder,11:20.1,11:20.1,24,Dream Destinations,Flight,Hotel Lobby,12-60 years,info@operator7.com
+9,New York City Adventure,3,Details,$800,4 days,Placeholder,11:20.1,11:20.1,26,Global Travel Co.,Private Car,City Center,12-60 years,info@operator8.com
+10,Grand Canyon Expedition,3,Details,$750,3 days,Placeholder,11:20.1,11:20.1,28,Dream Destinations,Bus,Hotel Lobby,None,info@operator9.com
+11,California Road Trip,3,Details,$1200,7 days,Placeholder,11:20.1,11:20.1,30,Global Travel Co.,Flight,City Center,12-60 years,info@operator10.com
+12,Florida Theme Park Extravaganza,3,Details,$1000,5 days,Placeholder,11:20.1,11:20.1,32,Dream Destinations,Private Car,Hotel Lobby,12-60 years,info@operator11.com
+13,Beijing Highlights Tour,4,Details,$600,4 days,Placeholder,11:20.1,11:20.1,34,Global Travel Co.,Bus,City Center,None,info@operator12.com
+14,Shanghai Modern City Tour,4,Details,$500,3 days,Placeholder,11:20.1,11:20.1,36,Dream Destinations,Flight,Hotel Lobby,12-60 years,info@operator13.com
+15,Yunnan Cultural Experience,4,Details,$900,6 days,Placeholder,11:20.1,11:20.1,38,Global Travel Co.,Private Car,City Center,12-60 years,info@operator14.com
+16,Guilin River Cruise,4,Details,$700,4 days,Placeholder,11:20.1,11:20.1,40,Dream Destinations,Bus,Hotel Lobby,None,info@operator15.com
+17,Rome Historical Walk,5,Details,$450,3 days,Placeholder,11:20.1,11:20.1,42,Global Travel Co.,Flight,City Center,12-60 years,info@operator16.com
+18,Tuscany Wine Tour,5,Details,$400,2 days,Placeholder,11:20.1,11:20.1,44,Dream Destinations,Private Car,Hotel Lobby,12-60 years,info@operator17.com
+19,Amalfi Coast Escape,5,Details,$700,5 days,Placeholder,11:20.1,11:20.1,46,Global Travel Co.,Bus,City Center,None,info@operator18.com
+20,Venice Gondola Ride,5,Details,$500,3 days,Placeholder,11:20.1,11:20.1,48,Dream Destinations,Flight,Hotel Lobby,12-60 years,info@operator19.com
+21,Istanbul Cultural Journey,6,Details,$450,3 days,Placeholder,11:20.1,11:20.1,50,Global Travel Co.,Private Car,City Center,12-60 years,info@operator20.com
+22,Cappadocia Hot Air Balloon Tour,6,Details,$400,2 days,Placeholder,11:20.1,11:20.1,52,Dream Destinations,Bus,Hotel Lobby,None,info@operator21.com
+23,Ephesus Ancient Ruins Tour,6,Details,$600,4 days,Placeholder,11:20.1,11:20.1,54,Global Travel Co.,Flight,City Center,12-60 years,info@operator22.com
+24,Pamukkale Thermal Pools,6,Details,$500,3 days,Placeholder,11:20.1,11:20.1,56,Dream Destinations,Private Car,Hotel Lobby,12-60 years,info@operator23.com
+25,Mexico City Exploration,7,Details,$450,3 days,Placeholder,11:20.1,11:20.1,58,Global Travel Co.,Bus,City Center,None,info@operator24.com
+26,Yucatán Peninsula Adventure,7,Details,$750,5 days,Placeholder,11:20.1,11:20.1,60,Dream Destinations,Flight,Hotel Lobby,12-60 years,info@operator25.com
+27,Baja California Whale Watching,7,Details,$650,3 days,Placeholder,11:20.1,11:20.1,62,Global Travel Co.,Private Car,City Center,12-60 years,info@operator26.com
+28,Riviera Maya Relaxation,7,Details,$850,5 days,Placeholder,11:20.1,11:20.1,64,Dream Destinations,Bus,Hotel Lobby,None,info@operator27.com
+29,London Sightseeing Tour,8,Details,$500,3 days,Placeholder,11:20.1,11:20.1,66,Global Travel Co.,Flight,City Center,12-60 years,info@operator28.com
+30,Scottish Highlands Escape,8,Details,$600,4 days,Placeholder,11:20.1,11:20.1,68,Dream Destinations,Private Car,Hotel Lobby,12-60 years,info@operator29.com
+31,Wales Coastal Path Walk,8,Details,$700,5 days,Placeholder,11:20.1,11:20.1,70,Global Travel Co.,Bus,City Center,None,info@operator30.com
+32,Northern Ireland Giants Causeway,8,Details,$550,4 days,Placeholder,11:20.1,11:20.1,72,Dream Destinations,Flight,Hotel Lobby,12-60 years,info@operator31.com
+33,Berlin Historical Tour,9,Details,$450,3 days,Placeholder,11:20.1,11:20.1,74,Global Travel Co.,Private Car,City Center,12-60 years,info@operator32.com
+34,Bavaria Castle Tour,9,Details,$400,2 days,Placeholder,11:20.1,11:20.1,76,Dream Destinations,Bus,Hotel Lobby,None,info@operator33.com
+35,Rhine Valley Cruise,9,Details,$600,4 days,Placeholder,11:20.1,11:20.1,78,Global Travel Co.,Flight,City Center,12-60 years,info@operator34.com
+36,Black Forest Hiking Adventure,9,Details,$500,4 days,Placeholder,11:20.1,11:20.1,80,Dream Destinations,Private Car,Hotel Lobby,12-60 years,info@operator35.com
+37,Athens Historical Tour,10,Details,$450,3 days,Placeholder,11:20.1,11:20.1,82,Global Travel Co.,Bus,City Center,None,info@operator36.com
+38,Santorini Island Escape,10,Details,$600,4 days,Placeholder,11:20.1,11:20.1,84,Dream Destinations,Flight,Hotel Lobby,12-60 years,info@operator37.com
+39,Cretan Culinary Experience,10,Details,$750,5 days,Placeholder,11:20.1,11:20.1,86,Global Travel Co.,Private Car,City Center,12-60 years,info@operator38.com
+40,Meteora Monasteries Tour,10,Details,$550,3 days,Placeholder,11:20.1,11:20.1,88,Dream Destinations,Bus,Hotel Lobby,None,info@operator39.com

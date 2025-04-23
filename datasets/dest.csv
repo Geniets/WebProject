@@ -1,0 +1,51 @@
+country_id,name,Attraction,besttime,image_loc,destination_id
+1,france,Eiffel Tower,April - June,france/ef.jpg,1
+1,france,Louvre,April - June,france/louvre.jpg,2
+1,france,Palace of Versailles,April - June,france/palace.jpg,3
+1,france,Promenade des Anglais,May - September,france/promenade.jpg,4
+1,france,Musee Matisse,May - September,france/musee.jpg,5
+2,spain,Sagrada Família,March - June,spain/sagrada.jpg,6
+2,spain,Prado Museum,March - June,spain/prado.jpg,7
+2,spain,Plaza de España,March - June,spain/plaza.jpg,8
+2,spain,Park Güell,September - November,spain/park.jpg,9
+2,spain,Alhambra,September - November,spain/alhambra.jpg,10
+3,us,Statue of Liberty,April - November,us/statue.jpg,11
+3,us,Golden Gate Bridge,April - November,us/golden.jpg,12
+3,us,Hollywood Walk of Fame,April - November,us/hollywood.jpg,13
+3,us,Yellowstone National Park,June - August,us/yellowstone.jpg,14
+3,us,Grand Canyon,October - April,us/grand.jpg,15
+4,china,Great Wall of China,April - November,china/great.jpg,16
+4,china,The Bund,April - November,china/the.jpg,17
+4,china,Terracotta Army,April - November,china/terracotta.jpg,18
+4,china,Zhangjiajie National Forest Park,May - October,china/zhangjiajie.jpg,19
+4,china,Jiuzhaigou Valley,September - November,china/jiuzhaigou.jpg,20
+5,italy,Colosseum,April - June,italy/colosseum.jpg,21
+5,italy,St. Mark's Basilica,April - June,italy/st.jpg,22
+5,italy,Uffizi Gallery,April - June,italy/uffizi.jpg,23
+5,italy,Amalfi Coast,July - September,italy/amalfi.jpg,24
+5,italy,Pompeii,July - September,italy/pompeii.jpg,25
+6,turkey,Hagia Sophia,April - May,turkey/hagia.jpg,26
+6,turkey,Göreme Open-Air Museum,April - May,turkey/g�.jpg,27
+6,turkey,Antalya Museum,April - May,turkey/antalya.jpg,28
+6,turkey,Pamukkale,June - August,turkey/pamukkale.jpg,29
+6,turkey,Mount Nemrut,June - August,turkey/mount.jpg,30
+7,mexico,Chichén Itzá,November - February,mexico/chich�.jpg,31
+7,mexico,Palacio de Bellas Artes,November - February,mexico/palacio.jpg,32
+7,mexico,Hospicio Cabañas,November - February,mexico/hospicio.jpg,33
+7,mexico,Tulum,March - May,mexico/tulum.jpg,34
+7,mexico,Copper Canyon,March - May,mexico/copper.jpg,35
+8,uk,Tower of London,March - June,uk/tower.jpg,36
+8,uk,Edinburgh Castle,March - June,uk/edinburgh.jpg,37
+8,uk,Roman Baths,March - June,uk/roman.jpg,38
+8,uk,Lake District,July - September,uk/lake.jpg,39
+8,uk,Stonehenge,July - September,uk/stonehenge.jpg,40
+9,germany,Brandenburg Gate,May - September,germany/brandenburg.jpg,41
+9,germany,Marienplatz,May - September,germany/marienplatz.jpg,42
+9,germany,Heidelberg Castle,May - September,germany/heidelberg.jpg,43
+9,germany,Black Forest,September - November,germany/black.jpg,44
+9,germany,Neuschwanstein Castle,September - November,germany/neuschwanstein.jpg,45
+10,greece,Acropolis,April - September,greece/acropolis.jpg,46
+10,greece,Oia,April - September,greece/oia.jpg,47
+10,greece,Mykonos Town,April - September,greece/mykonos.jpg,48
+10,greece,Delphi,March - May,greece/delphi.jpg,49
+10,greece,Meteora,March - May,greece/meteora.jpg,50

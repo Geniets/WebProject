@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <title>Package Details</title>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="/">Wander<span>Wise</span></a></div>
+            
+            <!-- Search form within the navbar -->
+          <div class="search-form">
+            <form action="/search" method="post">
+              <input type="text" name="search" placeholder="Country Ex: Spain">
+              <input type="submit" name="submit">
+            </form>
+          </div>
+
+            <!-- Authentication Links -->
+            <div class="auth-links"> 
+                {% if session.get('username') %} 
+                    <button onclick="window.location.href='/wishlist';">&#9825;</button>&nbsp;&nbsp;
+                    Hi, {{ session['username'] }}&nbsp;
+                    <div class="dropdown">
+                        <img src="/static/images/setting.png" onclick="toggleDropdown()" id="settingIcon">
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="/logout">Logout</a>
+                            <a href="/login">Sign In</a>
+                            <a href="/register">Register</a>
+                        </div>
+                    </div>
+                {% else %} 
+                    <a href="/login">Sign In</a> 
+                    <a href="/register">Register</a> 
+                {% endif %} 
+            </div>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="slider-wrapper">
+            <div class="slider">
+                <img id="slide-1" src="{{ url_for('static', filename='images/countries/' + listing[7]) }}" alt="country image">
+                <img id="slide-2" src="{{ url_for('static', filename='images/countries/' + listing[8]) }}" alt="country image">
+                <img id="slide-3" src="{{ url_for('static', filename='images/countries/' + listing[9]) }}" alt="country image">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <div class="slider-nav">
+                <a class="dot" onclick="currentSlide(1)"></a>
+                <a class="dot" onclick="currentSlide(2)"></a>
+                <a class="dot" onclick="currentSlide(3)"></a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.querySelectorAll(".slider img");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+
+    <section class="count-header">
+        <span style="padding-left: 300px">
+            <div class="fav">
+                <h1>{{listing[1].upper()}}</h1>
+            </div>
+             <div class="info">
+                <div class="info1">
+                    <b>POPULATION: {{listing[3]}}</b>
+                </div>
+                <div class="info2">
+                    <b>LANGUAGE: {{listing[4]}}</b>
+                </div>
+                <div class="info3">
+                    <b>CURRENCY: {{listing[5]}}</b>
+                </div>
+         </div>
+        </span>
+    </section>
+
+    <section class="details">
+        {{listing[6]}}
+        <br><br>
+        <span style="font-size: 30px"><b>ESSENTIAL {{listing[1].upper()}}</b></span>
+        <br><br>
+        <span style="font-size: 20px"><b>RESTAURANTS</b></span>
+    </section>
+
+    <section>
+        <div class="toprestaurants">
+            {% for i in rest %}
+                {% if loop.index <= 3 %}
+                    
+                        <div class="imgres">
+                            <a href="/restdetail/{{ i[0] }}">
+                            <img src="{{ url_for('static', filename='images/restaurants/' + i[11]) }}" alt="Restaurant Image" width="600px" height="375px"></a>
+                            <p>{{ i[1] }}</p>
+                            <p>{{i[5]}} &nbsp {{i[4]}}</p>
+
+                        </div>
+                    
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <br><br>
+
+    <section>
+
+        <span style="font-size: 20px"><b>PLACES TO VISIT</b></span>
+        <div class="topdestination">
+            {% for i in dest %}
+                {% if loop.index <= 3 %}
+                    
+                        <div class="imgdest">
+                            <a href="/detail/{{ i[5] }}">
+                            <img src="{{ url_for('static', filename='images/destination/' + i[4]) }}" alt="Destination Image" width="600px" height="375px"></a>
+                            <p>{{ i[2] }}</p>
+                        </div>
+                    
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    <section>
+
+        <span style="font-size: 20px"><b>PACKAGES</b></span>
+        <div class="toppackages">
+            {% for i in pack %}
+                {% if loop.index <= 3 %}
+                    
+                        <div class="imgdest">
+                            <a href="/packdetail/{{ i[0] }}">
+                            <img src="{{ url_for('static', filename='images/packages/' + i[14]) }}" alt="Destination Image" width="600px" height="375px"></a>
+                            <p>{{ i[1] }}</p>
+                        </div>
+                    
+                {% endif %}
+            {% endfor %}
+        </div>
+
+    </section>
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+  <script>
+        function toggleDropdown() {
+            var img = document.getElementById("settingIcon");
+            // Toggle the 'rotated' class to apply/remove the rotation
+            img.classList.toggle("rotated");
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown img')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+    <footer class="footer"> 
+        <div class="footer-content"> 
+            <p>&copy; 2024 ListRace. All rights reserved.</p> 
+            <ul class="footer-links"> 
+                <li><a href="#">Privacy Policy</a></li> 
+                <li><a href="#">Terms of Service</a></li> 
+                <li><a href="#">Contact Us</a></li> 
+            </ul> 
+        </div>
+</body>
+</html>

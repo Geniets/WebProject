@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/css/tres.css">
+    <title>Top Restaurants</title>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="/">Wander<span>Wise</span></a></div>
+            
+            <!-- Search form within the navbar -->
+            <div class="searchform">
+                <form method="post" action="/tres">
+                    <input type="text" name="searchr" placeholder="Search for Restaurants">
+                    <input type="submit" name="submit">
+                </form>
+            </div>
+
+            <!-- Authentication Links -->
+            <div class="auth-links"> 
+                {% if session.get('username') %} 
+                    <button onclick="window.location.href='/wishlist';">&#9825;</button>&nbsp;&nbsp;
+                    Hi, {{ session['username'] }}&nbsp;
+                    <div class="dropdown">
+                        <img src="/static/images/setting.png" onclick="toggleDropdown()" id="settingIcon">
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="/logout">Logout</a>
+                            <a href="/login">Sign In</a>
+                            <a href="/register">Register</a>
+                        </div>
+                    </div>
+                {% else %} 
+                    <a href="/login">Sign In</a> 
+                    <a href="/register">Register</a> 
+                {% endif %} 
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar for Filters -->
+        <div class="sidebar">
+            <h3>Filter Options</h3>
+            <form method="post" action="/tres" class="filter-form">
+                <!-- Filter by Rating -->
+                <label for="rating">Rating:</label>
+                <select name="rating" id="rating">
+                    <option value="">Select Rating</option>
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+
+                <!-- Filter by Price Range -->
+                <label for="price_range">Price Range:</label>
+                <select name="price_range" id="price_range">
+                    <option value="">Select Price Range</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+
+                <!-- Filter by Country -->
+                <label for="country">Country:</label>
+                <select name="country" id="country">
+                    <option value="">Select Country</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="Italy">Italy</option>
+                    <option value="France">France</option>
+                    <option value="China">China</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Greece">Greece</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Turkey">Turkey</option>
+                    <!-- Add more countries as needed -->
+                </select>
+
+                <!-- Submit Button -->
+                <button type="submit" name="submit">Apply Filters</button>
+            </form>
+        </div>
+
+        <!-- Main Content for Results -->
+        <div class="main-content">
+            <center><h1>RESTAURANTS</h1></center>
+            
+            <!-- Displaying the Restaurants -->
+            <div class="toprestaurants">
+                {% for i in rest %}
+                    <div class="imgres">
+                        <a href="/restdetail/{{ i[0] }}">
+                            <img src="static/images/restaurants/{{ i[11] }}" alt="Restaurant Image">
+                        </a>
+                        <p>{{ i[1] }}</p>
+                        Location: {{ i[3] }} {{ i[5] }}&Star;
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 ListRace. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        function toggleDropdown() {
+            var img = document.getElementById("settingIcon");
+            // Toggle the 'rotated' class to apply/remove the rotation
+            img.classList.toggle("rotated");
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown img')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/css/tres.css">
+    <title>Destination</title>
+
+</head>
+<body>
+<header>
+        <div class="navbar">
+            <div class="logo"><a href="/">Wander<span>Wise</span></a></div>
+            
+            <!-- Search form within the navbar -->
+            <div class="searchform">
+                <form method="post" action="/des">
+                    <input type="text" name="searchd" placeholder="Search for Destination">
+                    <input type="submit" name="submit">
+                </form>
+            </div>
+
+            <!-- Authentication Links -->
+            <div class="auth-links"> 
+                {% if session.get('username') %} 
+                    <button onclick="window.location.href='/wishlist';">&#9825;</button>&nbsp;&nbsp;
+                    Hi, {{ session['username'] }}&nbsp;
+                    <div class="dropdown">
+                        <img src="/static/images/setting.png" onclick="toggleDropdown()" id="settingIcon">
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="/logout">Logout</a>
+                            <a href="/login">Sign In</a>
+                            <a href="/register">Register</a>
+                        </div>
+                    </div>
+                {% else %} 
+                    <a href="/login">Sign In</a> 
+                    <a href="/register">Register</a> 
+                {% endif %} 
+            </div>
+        </div>
+    </header>
+
+
+
+        
+    <section>
+        <div class="toprestaurants">
+            {% for i in dest %}
+            <div class="imgres">
+                <a href="/detail/{{ i[5] }}">
+                    <img src="static/images/destination/{{ i[4] }}" alt="Destination Image" width="250px" height="350px">
+                </a>
+                <p>{{ i[2] }}</p>
+                Location: {{ i[1] }}
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+      <script>
+        function toggleDropdown() {
+            var img = document.getElementById("settingIcon");
+            // Toggle the 'rotated' class to apply/remove the rotation
+            img.classList.toggle("rotated");
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown img')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+          <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 ListRace. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Wishlist</title>
+  
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .wishlist-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .wishlist-item img {
+            max-width: 100px;
+            max-height: 100px;
+            margin-right: 20px;
+        }
+        .wishlist-item .item-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .wishlist-item .item-info h5 {
+            margin: 0;
+        }
+        .wishlist-item .item-info p {
+            margin: 5px 0;
+        }
+        .remove-btn {
+            margin-top: 10px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .remove-btn:hover {
+            background-color: #c82333;
+        }
+        .navbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(135deg, #f4f4f4, #e2e2e2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: red;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+}
+
+.auth-links {
+  display: flex;
+  align-items: center;
+  padding-right: 90px;
+}
+
+.auth-links span {
+  margin-right: 15px;
+}
+
+.auth-links img {
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Rotated state */
+.rotated {
+  transform: rotate(90deg); /* Rotates the image 90 degrees */
+}
+
+.auth-links a {
+  text-decoration: none;
+  margin-left: 10px;
+  color: #007bff;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown img {
+  height: 25px;
+  width: 25px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.show {
+  display: block;
+}
+.logo {
+    text-decoration: none; /* Remove underline */
+     /* Inherit color from the parent, or set a custom color */
+}
+
+a {
+    text-decoration: none; /* Remove underline from all links */
+}
+
+a:hover, a:visited, a:focus {
+    text-decoration: none;
+    color: black; /* Ensure underline stays removed on hover/visited states */
+     /* Keep the original color */
+}
+    </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo"><a href="/">Wander<span >Wise</span></a> </div>
+
+      <div class="auth-links">
+        {% if session.get('username') %}
+          <button onclick="window.location.href='/wishlist';">&#9825;</button>&nbsp;&nbsp;
+          Hi, {{ session['username'] }}&nbsp;
+          <div class="dropdown">
+            <img src="/static/images/setting.png" onclick="toggleDropdown()" id="settingIcon">
+            <div id="myDropdown" class="dropdown-content">
+              <a href="/logout">Logout</a>
+              <a href="/login">Sign In</a>
+              <a href="/register">Register</a>
+            </div>
+          </div>
+        {% else %}
+          <a href="/login">Sign In</a>
+          <a href="/register">Register</a>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+<div class="container">
+    <h1 class="my-4">Your Wishlist</h1>
+
+    <!-- Flash message for success or error -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="alert alert-success" role="alert">
+                {{ messages[0][0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Wishlist items display -->
+    {% if wishlist %}
+        <div class="row">
+            {% for item in wishlist %}
+            <div class="col-md-4">
+                <div class="wishlist-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="{{ item.item_loc }}" alt="{{ item.item_name }} Image">
+                        </div>
+                        <div class="col-md-8 item-info">
+                            <h5>{{ item.item_name }}</h5>
+                            {% if item.item_type == 'restaurant' %}
+                                <p><strong>Cuisine:</strong> {{ item.item_cuisine }}</p>
+                            {% endif %}
+                            <p>{{ item.item_description }}</p>
+                            {% if item.item_type == 'restaurant' %}
+                                <a href="{{ url_for('restdetail', restaurant_id=item.item_id) }}" class="btn btn-primary btn-sm">View Details</a>
+                            {% elif item.item_type == 'destination' %}
+                                <a href="{{ url_for('detail', destination_id=item.item_id) }}" class="btn btn-primary btn-sm">View Details</a>
+                            {% endif %}
+                            <form action="{{ url_for('remove_from_wishlist', wishlist_id=item.wishlist_id) }}" method="POST" class="mt-2">
+                                <button type="submit" class="remove-btn">Remove from Wishlist</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>You have no items in your wishlist.</p>
+    {% endif %}
+
+</div>
+  <script>
+        function toggleDropdown() {
+            var img = document.getElementById("settingIcon");
+            // Toggle the 'rotated' class to apply/remove the rotation
+            img.classList.toggle("rotated");
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown img')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+
+</body>
+</html>

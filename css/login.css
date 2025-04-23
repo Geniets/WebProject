@@ -1,0 +1,108 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background: url('/static/images/login.jpg') no-repeat center center fixed;
+  background-size: cover; /* Ensures background image covers the entire screen */
+  color: black; /* Changed text color to black */
+  display: flex;
+  justify-content: center;
+  padding-right: 20px; /* Aligns the content to the center horizontally */
+  align-items: center; /* Aligns the content to the center vertically */
+  height: 100vh;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: red;
+}
+
+.header {
+  width: 300px;
+  height: 150px;
+  text-align: center;
+  font-size: 24px;
+  color: black; /* Changed text color to black */
+   /* Dark background for header */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+.border {
+  padding: 40px 40px; /* Adjusted padding for better balance */
+  width: 350px; /* Adjusted width */
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  color: black; /* Changed text color to black */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow for emphasis */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  padding: 12px 45px;
+  background-color: #e74c3c; /* Bright red for a modern feel */
+  color: black; /* Changed button text color to black */
+  font-style: oblique;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.textbox {
+  padding: 12px 20px;
+  background-color: #fafafa; /* Light gray background */
+  color: black; /* Changed input text color to black */
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.textbox:focus {
+  outline: none;
+  border-color: #3498db; /* Blue border on focus */
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.5); /* Blue glow on focus */
+}
+
+::placeholder {
+  color: black; /* Changed placeholder text color to black */
+  opacity: 1;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.bottom {
+  color: black; /* Changed text color to black */
+  font-style: oblique;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.error-message {
+  color: black; /* Changed text color to black */
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.msg {
+  color: black; /* Changed text color to black */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 18px; /* Slightly larger font */
+}

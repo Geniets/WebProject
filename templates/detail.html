@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ dest[1] }} Details</title> <!-- Assuming dest[1] is the name -->
+  <link rel="stylesheet" href="/static/css/destdetail.css">
+</head>
+<body>
+  <header>
+    <header>
+        <div class="navbar">
+            <a href="/" ><div class="logo">Wander<span>Wise</span></div></a>
+            
+            <!-- Search form within the navbar -->
+          <div class="search-form">
+            <form action="/search" method="post">
+              <input type="text" name="search" placeholder="Country Ex: Spain">
+              <input type="submit" name="submit">
+            </form>
+          </div>
+
+            <!-- Authentication Links -->
+            <div class="auth-links"> 
+                {% if session.get('username') %} 
+                    <button onclick="window.location.href='/wishlist';">&#9825;</button>&nbsp;&nbsp;
+                    Hi, {{ session['username'] }}&nbsp;
+                    <div class="dropdown">
+                        <img src="/static/images/setting.png" onclick="toggleDropdown()" id="settingIcon">
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="/logout">Logout</a>
+                            <a href="/login">Sign In</a>
+                            <a href="/register">Register</a>
+                        </div>
+                    </div>
+                {% else %} 
+                    <a href="/login">Sign In</a> 
+                    <a href="/register">Register</a> 
+                {% endif %} 
+            </div>
+        </div>
+    </header>
+
+  <section>
+    <div class="main">
+        <div class="fav">
+          <h1>{{ dest[2] }}</h1>
+          <form action="/wishlist/add" method="POST">
+            <input type="hidden" name="item_id" value="{{ dest[5] }}">
+            <input type="hidden" name="item_name" value="{{ dest[2] }}">
+            <input type="hidden" name="item_description" value="{{ dest[7] }}">
+            <input type="hidden" name="item_type" value="destination">
+            <input type="hidden" name="item_loc" value="static/images/destination/{{dest[4]}}">
+            <button type="submit" class="heart-btn">&#9825;</button>
+          </form>
+        </div>
+       
+      <div class="subabout">
+
+        <div class="img11">
+          <img src="{{ url_for('static', filename='images/destination/' + dest[4]) }}" alt="{{ dest[2] }}" width="450px" height="350px">
+        </div>
+
+        <div class="second">
+            <h3>About</h3>
+            {{ dest[7] }}
+            <div class="point">
+              
+
+          <div class="third">
+
+            <h4>Timings</h4>
+            {{ dest[6] }}
+            <h4>Best-Time</h4>
+            {{ dest[3] }}
+          </div>
+
+          <div class="fourth">
+            <h4>Address:</h4>
+            <ul>
+              {% for part in dest[9].split(',') %}
+                <li>{{ part.strip() }}</li> 
+              {% endfor %}
+            </ul>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+        function toggleDropdown() {
+            var img = document.getElementById("settingIcon");
+            // Toggle the 'rotated' class to apply/remove the rotation
+            img.classList.toggle("rotated");
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown img')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+          <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 ListRace. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
